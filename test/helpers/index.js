@@ -23,7 +23,7 @@ const fields = {
   name: 'Eduardo Bouças',
   email: 'mail@eduardoboucas.com',
   url: 'https://eduardoboucas.com',
-  message: 'This is a sample comment'
+  message: 'This is a sample comment\nthat spans multiple lines'
 }
 
 const parameters = {
@@ -75,7 +75,7 @@ module.exports.getFieldsTable = () => {
   ]
 
   Object.keys(fields).forEach(field => {
-    rows.push([field, fields[field]])
+    rows.push([field, fields[field].replace(/\n/g, '<br/>')])
   })
 
   return markdownTable(rows)
